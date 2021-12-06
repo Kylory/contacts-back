@@ -7,7 +7,7 @@ const loginUser = async ({ email, password }) => {
   const user = await User.findOne({ email })
 
   // Якщо такого юзера немає в БД, або його email не верифіковано повертаємо null, який обробить інша функція
-  if (!user || !user.verify) {
+  if (!user) {
     return null
   }
 
@@ -31,8 +31,8 @@ const loginUser = async ({ email, password }) => {
   return {
     token,
     user: {
+      name: user.name,
       email: user.email,
-      subscription: user.subscription,
     },
   }
 }

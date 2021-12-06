@@ -4,7 +4,6 @@ const Joi = require('joi')
 
 const joiSchema = Joi.object({
   name: Joi.string(),
-  email: Joi.string(),
   phone: Joi.string(),
 })
 

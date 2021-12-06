@@ -10,7 +10,6 @@ const current = async (req, res) => {
     ResponseBody: {
       name: user.name,
       email: user.email,
-      subscription: user.subscription,
     },
   })
 }

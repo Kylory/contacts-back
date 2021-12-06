@@ -40,7 +40,6 @@ const login = async (req, res) => {
       user: {
         name: result.user.name,
         email: result.user.email,
-        subscription: result.user.subscription,
       },
     },
   })

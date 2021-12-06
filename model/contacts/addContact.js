@@ -1,7 +1,7 @@
 const { Contact } = require('../../db/contactModel')
 
-const addContact = async ({ name, email, phone, favorite }, _id) => {
-  return await Contact.create({ name, email, phone, favorite, owner: _id })
+const addContact = async ({ name, number }, _id) => {
+  return await Contact.create({ name, number, owner: _id })
 }
 
 module.exports = addContact
