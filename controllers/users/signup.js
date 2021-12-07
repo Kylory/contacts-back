@@ -1,5 +1,4 @@
 const { addUser } = require('../../model/users')
-// const { sendEmail } = require('../../utils')
 const Joi = require('joi')
 
 const joiSchema = Joi.object({
@@ -34,24 +33,14 @@ const signup = async (req, res) => {
     return
   }
 
-  // const message = {
-  //   to: result.email,
-  //   subject: 'Confrim registration',
-  //   html: `<a target="_blank" href="http://localhost:3000/api/users/verify/${result.verifyToken}">Click to confrim registration</a>`,
-  // }
-
-  // sendEmail(message)
-
   res.status(201).json({
     Status: '201 Created',
     'Content-Type': 'application/json',
     ResponseBody: {
-      // message: 'Verification link has been sent to you email',
       token: result.token,
       user: {
         name: result.name,
         email: result.email,
-        // subscription: result.subscription,
       },
     },
   })

@@ -4,13 +4,13 @@ const Joi = require('joi')
 
 const joiSchema = Joi.object({
   name: Joi.string(),
-  phone: Joi.string(),
+  number: Joi.string(),
 })
 
 const updateById = async (req, res) => {
-  const { _id } = req.user
   const id = req.params.contactId
   const data = req.body
+
   const { error } = joiSchema.validate(req.body)
 
   if (error) {
@@ -22,7 +22,7 @@ const updateById = async (req, res) => {
     throw new BadRequest('missing fields')
   }
 
-  const updatedContact = await updateContactById(id, _id, data)
+  const updatedContact = await updateContactById(id, data)
 
   // Якщо котакт не знайдено в БД
   if (!updatedContact) {
